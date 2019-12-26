@@ -1,68 +1,52 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Lenovo
-  Date: 2019/12/24
-  Time: 23:04
+  User: wo
+  Date: 2019/12/18
+  Time: 17:33
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE HTML>
-<html lang="zh" class="no-js">
+<%@ page contentType="text/html" pageEncoding="UTF-8" language="java" %>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administrator Page</title>
+  <title>首页</title>
 
-  <link href='https://fonts.useso.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-  <link rel="stylesheet" type="text/css" href="css/demo.css">
-  <link rel="stylesheet" href="css/style1.css"> <!-- Resource style -->
-  <script src="js/modernizr.js"></script> <!-- Modernizr -->
+  <style>
+    a{font-size: large; text-align: center}
+    td{text-align: center}
+  </style>
+
+
 </head>
 <body>
-<header class="cd-main-header animate-search">
-  <div class="cd-logo"><a href="#"><img src="img/cd-logo.svg" alt="Logo"></a></div>
 
-  <nav class="cd-main-nav-wrapper">
+<table align="center">
+  <tr>
+    <td><a href="administratorLogin.jsp">系统管理员请点此处登录</a><br></td>
+  </tr>
 
-    <a href="#" class="cd-search-trigger cd-text-replace">Search</a>  <!-- 搜索按钮 -->
+  <tr>
+    <td><a href="test.jsp">点此测试数据库</a><br></td>
+  </tr>
 
-    <ul class="cd-main-nav">
-      <li><a href="loginChoose.html">退出登录</a></li>     <!-- 返回上一层 -->
-    </ul> <!-- .cd-main-nav -->
-  </nav> <!-- .cd-main-nav-wrapper -->
+  <tr>
+    <td><a href="testDao.jsp">点此测试DAO</a><br></td>
+  </tr>
 
-  <a href="#" class="cd-nav-trigger cd-text-replace">Menu<span></span></a>
-</header>
+  <tr>
+    <td><a href="testCSS.jsp">测试前端</a></td>
+  </tr>
 
+  <tr>
+    <td><a href="testIMG.jsp">测试图片</a></td>
+  </tr>
 
-<div id="search" class="cd-main-search">
-  <form>
-    <input type="search" placeholder="Search...">
+  <tr>
+    <td><a href="testStudentDao.jsp">测试学生dao</a></td>
+  </tr>
 
-    <div class="cd-select">
-    </div>
-  </form>
-  <div class="cd-search-suggestions">
-    <div class="news">
-      <ul>
-        <li>
-          <a class="image-wrapper" href="login.html" ><img src="img/placeholder1.png" alt="News image"></a> <!-- 查询按钮 -->
-          <h4>点击查看查询结果</h4>
-        </li>
-      </ul>
-    </div> <!-- .news -->
-
-    <div class="quick-links">
+</table>
 
 
-    </div> <!-- .quick-links -->
-  </div> <!-- .cd-search-suggestions -->
 
-</div> <!-- .cd-main-search -->
-<div class="cd-cover-layer"></div> <!-- cover main content when search form is open -->
-<script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="js/main1.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
