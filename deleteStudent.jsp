@@ -2,16 +2,15 @@
   Created by IntelliJ IDEA.
   User: 白开水
   Date: 2019/12/26
-  Time: 19:28
+  Time: 20:16
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>禁用一个学生</title>
 </head>
 <body>
-
 
 <%
     String shanchu = request.getParameter("number");
@@ -47,8 +46,7 @@
 
 %>
 
-<jsp:forward page="checkAccount.jsp"></jsp:forward>
-
+<jsp:forward page="query.jsp"></jsp:forward>
 
 </body>
 </html>

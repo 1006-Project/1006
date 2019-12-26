@@ -1,19 +1,26 @@
-<%@ page import="java.sql.*" %><%--
+<%@ page import="java.sql.*" %>
+<%@ page import="daos.StudentDao" %>
+<%@ page import="beans.student" %>
+<%@ page import="java.util.ArrayList" %>
+<%--
   Created by IntelliJ IDEA.
-  User: wo
-  Date: 2019/12/22
-  Time: 10:32
+  User: 白开水
+  Date: 2019/12/26
+  Time: 19:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查看用户数据</title>
+    <title>查询所有学生的信息</title>
 </head>
 <body>
 
+
 <h1>查看信息</h1>
 <hr>
+
+
 
 <form action="query.jsp">
     <input type="text" name="acc"><input type="submit" value="查询">
@@ -37,63 +44,51 @@
     </tr>
 
 
+
     <%
+        StudentDao stu = new StudentDao();
+        ArrayList<student> allStudents = stu.queryAllStudents();
+        student jack;
 
         String acc = request.getParameter("acc") + "";
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        String url = "jdbc:mysql://localhost:3306/tongxunlu"; //数据库名
-        String username = "root";  //数据库用户名
-        String pwd = "weibo123";  //数据库用户密码
-        Connection conn = null;  //连接状态
-        try {
-            conn = DriverManager.getConnection(url, username, pwd);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        int i = 1;
+        int j = 0;
 
-        if(conn != null) {
+        System.out.println(acc);
 
-
-            Statement stat = null;
-            ResultSet rs = null;
-            String sql = "SELECT * FROM student;";  //查询语句
-            stat = conn.createStatement();
-            rs = stat.executeQuery(sql);
-
-            int i = 1;
-
-            System.out.println(acc);
-
-
-            while (rs.next())
+        for(j = 0; j < allStudents.size(); j++)
+        {
+            jack = allStudents.get(j);
+            if (jack.getAccount().contains(acc))
             {
-
                 out.print("<tr>");
 
-                if(rs.getString(1).contains(acc))
-                {
+                out.print("<td>" + jack.getAccount() + "</td>");
+                out.print("<td>" + jack.getName() + "</td>");
+                out.print("<td>" + jack.getMajor() + "</td>");
+                out.print("<td>" + jack.getClasses() + "</td>");
+                out.print("<td>" + jack.getIn_year() + "</td>");
+                out.print("<td>" + jack.getOut_year() + "</td>");
+                out.print("<td>" + jack.getUnit() + "</td>");
+                out.print("<td>" + jack.getCity() + "</td>");
+                out.print("<td>" + jack.getPhone() + "</td>");
+                out.print("<td>" + jack.getEmail() + "</td>");
+                out.print("<td>" + jack.getTime() + "</td>");
+                out.print("<td>" + jack.getSum() + "</td>");
+                out.print("<td>" + "<a href=\"deleteStudent.jsp?acc=" + jack.getAccount() + "\">禁用</a>" + "</td>");
 
-                    for (i = 1; i < 13; i++)
-                        out.print("<td>" + rs.getString(i) + "</td>");
-                    out.print("<td>" + "<a href=\"query.jsp\"></a>" + "</td>");
-                }
                 out.print("</tr>");
             }
 
-
-            stat.close();
-            conn.close();
-            rs.close();
         }
+
+
     %>
 
-<a href="query.jsp"></a>
 </table>
+
+<p><a href="admSuccess.jsp">返回</a></p>
 
 </body>
 </html>
