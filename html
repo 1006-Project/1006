@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>step2</title>
+
+    <style>
+        form{text-align:center;}
+        div{background:#33ff99;width:400px;height:200px;margin:0 auto;}
+    </style>
+</head>
+<body onmousedown="mdown()">
+
+<div>
+    <form name="myform">
+        <input type="text" name="mouseevent" value="" onmousemove="mmove()"><br>
+        <input type="button" value="鼠标事件" onmouseover="mover()" onmouseout="mout()" onclick="mclick()" ondblclick="mdclick()"><br>
+    </form>
+</div>
+
+<script>
+    //鼠标悬停
+    function mover()
+    {
+        document.bgColor = "#99cc66"
+    }
+    //鼠标移出
+    function mout()
+    {
+        document.bgColor = "#ff33ff"
+    }
+    //鼠标移动
+    function mmove()
+    {
+        document.bgColor = "#0033ff"
+    }
+    //按下鼠标
+    function mdown()
+    {
+        var curform = document.all.myform;
+        curform.mouseevent.value = "按下鼠标";
+    }
+    //单击鼠标
+    function mclick()
+    {
+        var curform = document.all.myform;
+        curform.mouseevent.value = "单击鼠标";
+    }
+    //双击鼠标
+    function mdclick()
+    {
+        var curform = document.all.myform;
+        curform.mouseevent.value = "双击鼠标";
+    }
+</script>
+
+</body>
+</html>
